@@ -17,7 +17,7 @@ export class MenuComponent {
   ARROW_LEFT_ICON = '../../../../assets/icons/Arrow_left.svg'
   ARROW_RIGHT_ICON = '../../../../assets/icons/Arrow_right.svg'
 
-  isCollapsed = false;
+  isCollapsed = true;
   isLocked: boolean = false;
   previousButton: menuButton | undefined = undefined
   lockedStatus: "Locked" | "Unlocked" = "Unlocked"
