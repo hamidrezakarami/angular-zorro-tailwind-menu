@@ -36,8 +36,11 @@
         />
         <span
           *ngIf="!isCollapsed"
-          [ngClass]="{ 'text-[#F8F7FC]': item.isActive }"
-          class="text-[#452EB2] text-[16px] tracking-[.015rem] mx-[8px]"
+          [ngClass]="{
+            'text-[#F8F7FC]': item.isActive,
+            'text-[#452EB2]': !item.isActive
+          }"
+          class="text-[16px] tracking-[.015rem] mx-[8px]"
           >{{ item.name }}</span
         >
         <nz-badge
