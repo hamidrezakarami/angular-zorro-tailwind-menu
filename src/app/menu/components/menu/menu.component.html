@@ -1,13 +1,10 @@
 <div class="p-0 m-0">
   <ul
-    class="absolute flex flex-col justify-between items-center p-[16px] top-[20px] bottom-[20px] bg-[#FFFFFF] shadow-[0_4px_16px_0px_rgba(17, 17, 17, 0.02)] rounded-[16px]"
-    [ngClass]="{
-      'w-[243px]': !isCollapsed,
-      'w-[88px]': isCollapsed
-    }"
+    class="absolute flex flex-col justify-between items-center p-4 top-5 bottom-5 bg-white shadow rounded-2xl transition-all duration-200"
+    [ngClass]="[isCollapsed ? 'w-22' : 'w-60']"
+    nz-menu
     (mouseenter)="mouseEnter()"
     (mouseleave)="mouseLeave()"
-    nz-menu
     nzMode="inline"
     nzTheme="light"
     [nzInlineCollapsed]="isCollapsed"
@@ -20,39 +17,39 @@
         nzType="text"
         (click)="onMenuButton(item)"
         [ngClass]="{
-          'w-[211px] p-[16px]': !isCollapsed,
-          'w-[56px] justify-center': isCollapsed,
+          'w-52 p-4': !isCollapsed,
+          'w-14 justify-center': isCollapsed,
           'cursor-pointer': !item.disable,
-          'bg-[#452EB2] text-white': item.isActive,
+          'bg-primary text-white': item.isActive,
           'opacity-50 cursor-not-allowed': item.disable
         }"
-        class="flex flex-none flex-row align-canter items-center w-[211px] rounded-[16px] h-[56px]"
+        class="flex flex-none flex-row align-canter items-center w-52 rounded-2xl h-14"
       >
         <img
           [ngClass]="{ 'brightness-0 invert': item.isActive }"
-          class="w-[24px] h-[24px]"
+          class="w-6 h-6"
           [src]="item.icon"
           alt=""
         />
         <span
           *ngIf="!isCollapsed"
           [ngClass]="{
-            'text-[#F8F7FC]': item.isActive,
-            'text-[#452EB2]': !item.isActive
+            'text-white': item.isActive,
+            'text-primary': !item.isActive
           }"
-          class="text-[16px] tracking-[.015rem] mx-[8px]"
+          class="text-base tracking-wide mx-2"
           >{{ item.name }}</span
         >
         <nz-badge
           *ngIf="item.badge && !isCollapsed"
           nzStandalone
           [nzStyle]="{ backgroundColor: '#D94545', 'font-size': '10px' }"
-          class="w-auto sticky w-[24px] h-[24px] left-[171px] top-[16px] text-[10px]"
+          class="w-auto sticky h-6 left-44 top-4 text-xs"
           [nzCount]="item.badge"
         ></nz-badge>
         <img
           *ngIf="item.secondIcon && !isCollapsed"
-          class="sticky w-[24px] h-[24px] left-[171px] top-[16px] text-[10px]"
+          class="sticky w-6 h-6 left-44 top-4 text-xs"
           [ngClass]="{ 'brightness-0 invert': item.isActive }"
           [src]="item.secondIcon"
           alt=""
@@ -65,29 +62,29 @@
         nz-button
         nzType="text"
         [ngClass]="{
-          ' w-[211px] p-[16px]': !isCollapsed
+          ' w-52 p-4': !isCollapsed
         }"
-        class="w-[211px] rounded-[16px] h-[56px] flex flex-none flex-row align-canter items-center"
+        class="w-52 rounded-2xl h-14 flex flex-none flex-row align-canter items-center"
       >
         <img
           *ngIf="!isCollapsed || !isLocked"
           (click)="toggleLocked()"
-          class="cursor-pointer w-[24px] h-[24px]"
+          class="cursor-pointer w-6 h-6"
           [src]="lockedIcon"
           alt=""
         />
         <span
           (click)="toggleLocked()"
           *ngIf="!isCollapsed"
-          class="cursor-pointer text-[#452EB2] text-[16px] tracking-[.015rem] mx-[8px]"
+          class="cursor-pointer text-primary text-base tracking-wide mx-2"
         >
           {{ lockedStatus }}
         </span>
         <img
           *ngIf="isLocked"
           (click)="isCollapsed = !isCollapsed"
-          [ngClass]="{ 'left-[171px]': !isCollapsed }"
-          class="cursor-pointer sticky w-[24px] h-[24px] top-[16px]"
+          [ngClass]="{ 'left-44': !isCollapsed }"
+          class="cursor-pointer sticky w-6 h-6 top-4"
           [src]="isCollapsed ? ARROW_RIGHT_ICON : ARROW_LEFT_ICON"
           alt=""
         />
