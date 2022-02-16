@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("tailwindcss/base");
+@import url("tailwindcss/utilities");
+@import url("tailwindcss/components");
 
-body{
-    height: 100%;
-    width: 100%;
-    background-color: #949494;
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #949494;
 }
